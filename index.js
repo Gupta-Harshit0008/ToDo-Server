@@ -48,6 +48,16 @@ res.send(result)
 // console.log(result);
 })
 
+//to update a Task wrt task Id
+
+app.put('/UpdateTask/:_id', async (req,res)=>{
+    let data= await dbConnect();
+    let result= await data.updateOne(
+        {id:req.body.id},
+        {$set:req.body});
+        res.send(result);
+})
+
 app.listen(1023);
 
 
